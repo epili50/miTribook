@@ -1,9 +1,7 @@
-
-
 const { Schema, model } = require("mongoose");
 
 // Your code here ...
-const apartmentSchema = new mongoose.Schema({ 
+const apartmentSchema = new Schema({ 
     title:{
         type: String,
         require: true
@@ -14,14 +12,15 @@ const apartmentSchema = new mongoose.Schema({
         require: true
     },
 
-    area:{
-        type: Number
+    size:{
+        type: Number, 
+        min: 0
     },
 
     mainPhoto:{
         type: String,
-        require: True
-        // TODO: Luego sacar el require y poner que se por defecto la primera del array de fotos
+        require: true
+        // TODO Luego sacar el require y poner que se por defecto la primera del array de fotos
     },
 
     services:{
@@ -36,6 +35,6 @@ const apartmentSchema = new mongoose.Schema({
 
 })
 
-const Apartment = model("apartment", apartmentSchema);
+const Apartment = model("Apartment", apartmentSchema);
 
 module.exports = Apartment;
