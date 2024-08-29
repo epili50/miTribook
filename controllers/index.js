@@ -13,6 +13,21 @@ const getApartments = async (req, res) => {
     });
 }
 
+const getApartmentById = async (req, res) =>{
+    const { idApartment } = req.params;
+
+    //Buscarlo en la BBDD
+    const selectedApartment = await Apartment.findById(idApartment);
+
+    //Renderizarlo
+    res.render('detail-Apartment', {
+        selectedApartment   
+    });
+
+
+};
+
 module.exports = {
-    getApartments
+    getApartments,
+    getApartmentById
 }
