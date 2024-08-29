@@ -8,6 +8,9 @@ const indexControllers = require('../controllers/index');
 // Router funciona igual que el "app" para crear los endpoints. Nos permite definir un conjunto arbitrario de rutas
 router.get('/', indexControllers.getApartments);
 
+//ruta al endpoint /search para buscar apartments
+router.get('/search', indexControllers.searchApartments);
+
 // ruta dinámica para detalle del apartamento
 router.get('/apartment/:idApartment', indexControllers.getApartmentById);
 

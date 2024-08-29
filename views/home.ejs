@@ -7,7 +7,11 @@
 </head>
 <body>
     <h1>Home Page</h1>
-    <main class="container apartments">
+    <main>
+        <form action="/search" method=" "GET">
+            <input type="number" name="priceMax" id="priceMax" placeholder="Buscar por precio máximo">
+            <input type="submit" value="Buscar">
+        </form>
         <% for (const ap of apartments) { %>
             <a href="/apartment/<%= ap._id %>">
                 <article>
