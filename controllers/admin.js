@@ -1,30 +1,55 @@
-const Apartment = require('../models/apartment.model.js')
+const Apartment = require("../models/apartment.model.js");
 
 const getNewApartmentForm = (req, res) => {
-    // Obtener todos los apartmentos de la base de datos
-    const apartments = Apartment.find();
+  // Obtener todos los apartmentos de la base de datos
+  const apartments = Apartment.find();
 
-    res.render('new-apartment.ejs')
-}
+  res.render("new-apartment.ejs", {
+    apartment: {},
+  });
+};
+
+const getEditAparmentForm = async (req, res) => {
+  // 1. Recuperar el apartmento identificado por su idApartment de la base de datos
+  const { idApartment } = req.params;
+
+  // 2. Ir a la base de datos y obtener el apartamento dada su id
+  const apartment = await Apartment.findById(idApartment);
+
+  // 3. Pasar este apartmento a la vista para pre rellenar todos los campos
+  res.render("new-apartment", {
+    apartment,
+  });
+};
 
 const postNewApartment = async (req, res) => {
-    
-    await Apartment.create({
-        title: req.body.title,
-        description: req.body.title,
-        price: req.body.price,
-        size: req.body.size,
-        mainPhoto: req.body.mainPhoto
+  const { id, title, description, price, size, mainPhoto } = req.body;
+
+  if (id) {
+    await Apartment.findByIdAndUpdate(id, {
+      title,
+      description,
+      price,
+      size,
+      mainPhoto,
     });
+    res.send("Apartamento actualizado");
+    return;
+  }
 
-    res.send('Apartamaneto creado');
-}
+  await Apartment.create({
+    title,
+    description,
+    price,
+    size,
+    mainPhoto,
+  });
 
-
-
+  res.send("Apartamaneto creado");
+};
 
 module.exports = {
-    getNewApartmentForm,
-    postNewApartment
-}
-
+  getNewApartmentForm,
+  postNewApartment,
+  getEditAparmentForm,
+};

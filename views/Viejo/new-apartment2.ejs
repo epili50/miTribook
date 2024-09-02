@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/admin/apartment/new-apartment" method="post">
+        <label for="title">Nombre</label>
+        <input type="text" name="title" id="title" maxlength="30" pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?: [A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*" required>
+        <label for="description">Descripción</label>
+        <textarea rows="5" name="description" id="description"></textarea>
+        <label for="price">Precio</label>
+        <input type="number" name="price" id="price" min="1" step="0.01" placeholder="0.00" required>
+        <label for="size">Superficie</label>
+        <input type="number" name="size" id="size" min="1" placeholder="0.00">
+        <label for="mainPhoto">Foto principal</label>
+        <input type="url" name="mainPhoto" id="mainPhoto">
+        <input type="submit" value="Agregar propiedad">
+
+    </form>
+</body>
+</html>
