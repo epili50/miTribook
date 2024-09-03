@@ -23,6 +23,7 @@ const getApartmentById = async (req, res) =>{
     res.render('detail-Apartment', {
         selectedApartment   
     });
+        console.log("🚀 ~ getApartmentById ~ selectedApartment:", selectedApartment)
 
 
 };

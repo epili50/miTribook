@@ -8,8 +8,8 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -18,13 +18,13 @@
   <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: EstateAgency
@@ -35,7 +35,7 @@
 </head>
 
 <body>
-
+/
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <div class="box-collapse">
@@ -189,7 +189,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">304 Blaster Up</h1>
+            <h1 class="title-single"><%= selectedApartment.title %></h1>
             <span class="color-text-a">Chicago, IL 606543</span>
           </div>
         </div>
@@ -197,13 +197,13 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="index.html">Home</a>
+                <a href="/">Home</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="property-grid.html">Properties</a>
+                <a href="/allProperties">Properties</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                304 Blaster Up
+                <%= selectedApartment.title %>
               </li>
             </ol>
           </nav>
@@ -220,14 +220,9 @@
         <div class="col-sm-12">
           <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
             <div class="carousel-item-b">
-              <img src="img/slide-2.jpg" alt="">
+              <img src=<%= selectedApartment.mainPhoto %> alt="">
             </div>
-            <div class="carousel-item-b">
-              <img src="img/slide-3.jpg" alt="">
-            </div>
-            <div class="carousel-item-b">
-              <img src="img/slide-1.jpg" alt="">
-            </div>
+            
           </div>
           <div class="row justify-content-between">
             <div class="col-md-5 col-lg-4">
@@ -237,7 +232,7 @@
                     <span class="ion-money">$</span>
                   </div>
                   <div class="card-title-c align-self-center">
-                    <h5 class="title-c">15000</h5>
+                    <h5 class="title-c"><%= selectedApartment.price %></h5>
                   </div>
                 </div>
               </div>
@@ -245,35 +240,32 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="title-box-d section-t4">
-                      <h3 class="title-d">Quick Summary</h3>
+                      <h3 class="title-d">Resumen</h3>
                     </div>
                   </div>
                 </div>
                 <div class="summary-list">
                   <ul class="list">
+                    
                     <li class="d-flex justify-content-between">
-                      <strong>Property ID:</strong>
-                      <span>1134</span>
+                      <strong>Ciudad:</strong>
+                      <span>Chicago</span>
                     </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Location:</strong>
-                      <span>Chicago, IL 606543</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
+                    <!-- <li class="d-flex justify-content-between">
                       <strong>Property Type:</strong>
                       <span>House</span>
                     </li>
                     <li class="d-flex justify-content-between">
                       <strong>Status:</strong>
                       <span>Sale</span>
-                    </li>
+                    </li> -->
                     <li class="d-flex justify-content-between">
                       <strong>Area:</strong>
-                      <span>340m
+                      <span><%= selectedApartment.size %>
                         <sup>2</sup>
                       </span>
                     </li>
-                    <li class="d-flex justify-content-between">
+                    <!-- <li class="d-flex justify-content-between">
                       <strong>Beds:</strong>
                       <span>4</span>
                     </li>
@@ -284,7 +276,7 @@
                     <li class="d-flex justify-content-between">
                       <strong>Garage:</strong>
                       <span>1</span>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -293,23 +285,15 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="title-box-d">
-                    <h3 class="title-d">Property Description</h3>
+                    <h3 class="title-d">Descripción</h3>
                   </div>
                 </div>
               </div>
               <div class="property-description">
                 <p class="description color-text-a">
-                  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                  neque, auctor sit amet
-                  aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.
-                  Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt
-                  nibh pulvinar quam id dui posuere blandit.
+                  <%= selectedApartment.description %>
                 </p>
-                <p class="description color-text-a no-margin">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                  malesuada. Quisque velit nisi,
-                  pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                </p>
+                
               </div>
               <div class="row section-t3">
                 <div class="col-sm-12">
@@ -334,7 +318,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-10 offset-md-1">
+        <!-- <div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab"
@@ -362,8 +346,8 @@
                 width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
           </div>
-        </div>
-        <div class="col-md-12">
+        </div> -->
+        <!-- <div class="col-md-12">
           <div class="row section-t3">
             <div class="col-sm-12">
               <div class="title-box-d">
@@ -462,14 +446,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
   <!--/ Property Single End /-->
 
   <!--/ footer Star /-->
-  <section class="section-footer">
+  <!-- <section class="section-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-4">
@@ -555,8 +539,8 @@
         </div>
       </div>
     </div>
-  </section>
-  <footer>
+  </section> -->
+  <!-- <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -626,25 +610,25 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <!--/ Footer End /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/lib/popper/popper.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="/contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 
 </body>
 </html>
