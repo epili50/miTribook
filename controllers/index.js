@@ -29,9 +29,11 @@ const getApartmentById = async (req, res) =>{
 };
 
 const searchApartments = async (req, res)=>{
-   // Obtenemos todos los apartamentos de la base de datos
+   const { priceMax } = req.query
+   console.log("🚀 ~ searchApartments ~ priceMax:", priceMax)
+   
+    // Obtenemos todos los apartamentos de la base de datos
    const apartments = await Apartment.find({ price: { $lte: req.query.priceMax } });
-   console.log("🚀 ~ searchApartments ~ req.body.priceMax:", req.query.priceMax)
 
    res.render('home', {
         apartments
