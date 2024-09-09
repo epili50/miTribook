@@ -1,85 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('./partials/head') %>
 </head>
 
 <body>
-/
+  /
   <div class="click-closed"></div>
   <%- include('./partials/search-form') %>
 
-  <%- include('./partials/nav') %>
+    <%- include('./partials/nav') %>
 
-  <!--/ Intro Single star /-->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single"><%= selectedApartment.title %></h1>
-            <span class="color-text-a">Chicago, IL 606543</span>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="/">Home</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="/allProperties">Properties</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                <%= selectedApartment.title %>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Intro Single End /-->
-
-  <!--/ Property Single Star /-->
-  <section class="property-single nav-arrow-b">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-            <div class="carousel-item-b">
-              <img src=<%= selectedApartment.mainPhoto %> alt="">
-            </div>
-            
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-md-5 col-lg-4">
-              <div class="property-price d-flex justify-content-center foo">
-                <div class="card-header-c d-flex">
-                  <div class="card-box-ico">
-                    <span class="ion-money">$</span>
-                  </div>
-                  <div class="card-title-c align-self-center">
-                    <h5 class="title-c"><%= selectedApartment.price %></h5>
-                  </div>
-                </div>
+      <!--/ Intro Single star /-->
+      <section class="intro-single">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-8">
+              <div class="title-single-box">
+                <h1 class="title-single">
+                  <%= selectedApartment.title %>
+                </h1>
+                <span class="color-text-a">Chicago, IL 606543</span>
               </div>
-              <div class="property-summary">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="title-box-d section-t4">
-                      <h3 class="title-d">Resumen</h3>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="/allProperties">Properties</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <%= selectedApartment.title %>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Intro Single End /-->
+
+      <!--/ Property Single Star /-->
+      <section class="property-single nav-arrow-b">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+                <div class="carousel-item-b">
+                  <img src=<%=selectedApartment.mainPhoto %> alt="">
+                </div>
+
+              </div>
+              <div class="row justify-content-between">
+                <div class="col-md-5 col-lg-4">
+                  <div class="property-price d-flex justify-content-center foo">
+                    <div class="card-header-c d-flex">
+                      <div class="card-box-ico">
+                        <span class="ion-money">$</span>
+                      </div>
+                      <div class="card-title-c align-self-center">
+                        <h5 class="title-c">
+                          <%= selectedApartment.price %>
+                        </h5>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="summary-list">
-                  <ul class="list">
-                    
-                    <li class="d-flex justify-content-between">
-                      <strong>Ciudad:</strong>
-                      <span>Chicago</span>
-                    </li>
-                    <!-- <li class="d-flex justify-content-between">
+                  <div class="property-summary">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="title-box-d section-t4">
+                          <h3 class="title-d">Resumen</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="summary-list">
+                      <ul class="list">
+
+                        <li class="d-flex justify-content-between">
+                          <strong>Ciudad:</strong>
+                          <span>Chicago</span>
+                        </li>
+                        <!-- <li class="d-flex justify-content-between">
                       <strong>Property Type:</strong>
                       <span>House</span>
                     </li>
@@ -87,13 +92,14 @@
                       <strong>Status:</strong>
                       <span>Sale</span>
                     </li> -->
-                    <li class="d-flex justify-content-between">
-                      <strong>Area:</strong>
-                      <span><%= selectedApartment.size %>
-                        <sup>2</sup>
-                      </span>
-                    </li>
-                    <!-- <li class="d-flex justify-content-between">
+                        <li class="d-flex justify-content-between">
+                          <strong>Area:</strong>
+                          <span>
+                            <%= selectedApartment.size %>
+                              <sup>2</sup>
+                          </span>
+                        </li>
+                        <!-- <li class="d-flex justify-content-between">
                       <strong>Beds:</strong>
                       <span>4</span>
                     </li>
@@ -105,48 +111,44 @@
                       <strong>Garage:</strong>
                       <span>1</span>
                     </li> -->
-                  </ul>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-7 col-lg-7 section-md-t3">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="title-box-d">
-                    <h3 class="title-d">Descripción</h3>
+                <div class="col-md-7 col-lg-7 section-md-t3">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="title-box-d">
+                        <h3 class="title-d">Descripción</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="property-description">
+                    <p class="description color-text-a">
+                      <%= selectedApartment.description %>
+                    </p>
+
+                  </div>
+                  <div class="row section-t3">
+                    <div class="col-sm-12">
+                      <div class="title-box-d">
+                        <h3 class="title-d">Amenities</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="amenities-list color-text-a">
+                    <ul class="list-a no-margin">
+                      <% selectedApartment.services.forEach(function(service) { %>
+                        <li>
+                          <%= service %>
+                        </li>
+                        <% }) %>
+                    </ul>
                   </div>
                 </div>
               </div>
-              <div class="property-description">
-                <p class="description color-text-a">
-                  <%= selectedApartment.description %>
-                </p>
-                
-              </div>
-              <div class="row section-t3">
-                <div class="col-sm-12">
-                  <div class="title-box-d">
-                    <h3 class="title-d">Amenities</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="amenities-list color-text-a">
-                <ul class="list-a no-margin">
-                  <li>Balcony</li>
-                  <li>Outdoor Kitchen</li>
-                  <li>Cable Tv</li>
-                  <li>Deck</li>
-                  <li>Tennis Courts</li>
-                  <li>Internet</li>
-                  <li>Parking</li>
-                  <li>Sun Room</li>
-                  <li>Concrete Flooring</li>
-                </ul>
-              </div>
             </div>
-          </div>
-        </div>
-        <!-- <div class="col-md-10 offset-md-1">
+            <!-- <div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab"
@@ -175,13 +177,13 @@
             </div>
           </div>
         </div> -->
-        <div class="col-md-12">
-          <div class="row section-t3">
-            <div class="col-sm-12">
-              <!-- <div class="title-box-d">
+            <div class="col-md-12">
+              <div class="row section-t3">
+                <div class="col-sm-12">
+                  <!-- <div class="title-box-d">
                 <h3 class="title-d">Contact Agent</h3>
               </div> -->
-            <!-- </div>
+                  <!-- </div>
           </div>
           <div class="row">
             <div class="col-md-6 col-lg-4">
@@ -244,48 +246,45 @@
                 </div>
               </div>
             </div> -->
-            <div class="col-md-12 col-lg-4">
-              <div class="title-box-d">
-                <h3 class="title-d">Reservas</h3>
-              </div>
-              <div class="property-contact">
-                <form action="/apartment/new-reservation" method="post" class="form-a">
-                  <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
-                  <div class="row">
-                    <div class="col-md-12 mb-1">
-                      <div class="form-group">
-                        <input type="email" name="inputEmail" id="inputEmail" class="form-control form-control-lg form-control-a" 
-                          placeholder="Email *" required>
-                      </div>
+                  <div class="col-md-12 col-lg-4">
+                    <div class="title-box-d">
+                      <h3 class="title-d">Reservas</h3>
                     </div>
-                    <div class="col-md-12 mb-1">
-                      <div class="form-group">
-                        <input name="startDate" id="starDate" type="date" class="form-control form-control-lg form-control-a" 
-                          placeholder="Desde *" required>
-                      </div>
-                    </div>
-                    <div class="col-md-12 mb-1">
-                      <div class="form-group">
-                        <input name="endDate" id="endate" type="date" class="form-control form-control-lg form-control-a" 
-                          placeholder="Hasta *" required>
-                      </div>
-                    </div>
-                   
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-a">Reservar</button>
+                    <div class="property-contact">
+                      <form action="/apartment/new-reservation" method="post" class="form-a">
+                        <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
+                        <div class="row">
+                          <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                              <input type="email" name="email" id="email"
+                                class="form-control form-control-lg form-control-a" placeholder="Email *" required>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                              <input name="dateRange" id="dateRange" type="text"
+                                class="form-control form-control-lg form-control-a"
+                                placeholder="Selecciona un rango de fechas" required>
+                            </div>
+                          </div>
+                          
+                          </div>
+
+                          <div class="col-md-12">
+                            <button type="submit" class="btn btn-a">Reservar</button>
+                          </div>
+                        </div>
+                      </form>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
-          </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Property Single End /-->
+      </section>
+      <!--/ Property Single End /-->
 
-  <!--/ footer Star /-->
-  <!-- <section class="section-footer">
+      <!--/ footer Star /-->
+      <!-- <section class="section-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-4">
@@ -372,7 +371,7 @@
       </div>
     </div>
   </section> -->
-  <!-- <footer>
+      <!-- <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -436,17 +435,18 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
             -->
-          </div>
-        </div>
       </div>
-    </div>
-  </footer> 
-  <!--/ Footer End /-->
+      </div>
+      </div>
+      </div>
+      </footer>
+      <!--/ Footer End /-->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+      <div id="preloader"></div>
 
-  <%- include('./partials/scripts') %>
+      <%- include('./partials/scripts') %>
 
 </body>
+
 </html>
