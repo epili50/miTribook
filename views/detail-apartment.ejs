@@ -175,13 +175,13 @@
             </div>
           </div>
         </div> -->
-        <!-- <div class="col-md-12">
+        <div class="col-md-12">
           <div class="row section-t3">
             <div class="col-sm-12">
-              <div class="title-box-d">
+              <!-- <div class="title-box-d">
                 <h3 class="title-d">Contact Agent</h3>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div>
           </div>
           <div class="row">
             <div class="col-md-6 col-lg-4">
@@ -243,38 +243,42 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-12 col-lg-4">
+              <div class="title-box-d">
+                <h3 class="title-d">Reservas</h3>
+              </div>
               <div class="property-contact">
-                <form class="form-a">
+                <form action="/apartment/new-reservation" method="post" class="form-a">
+                  <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
                   <div class="row">
                     <div class="col-md-12 mb-1">
                       <div class="form-group">
-                        <input type="text" class="form-control form-control-lg form-control-a" id="inputName"
-                          placeholder="Name *" required>
-                      </div>
-                    </div>
-                    <div class="col-md-12 mb-1">
-                      <div class="form-group">
-                        <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1"
+                        <input type="email" name="inputEmail" id="inputEmail" class="form-control form-control-lg form-control-a" 
                           placeholder="Email *" required>
                       </div>
                     </div>
                     <div class="col-md-12 mb-1">
                       <div class="form-group">
-                        <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45"
-                          rows="8" required></textarea>
+                        <input name="startDate" id="starDate" type="date" class="form-control form-control-lg form-control-a" 
+                          placeholder="Desde *" required>
                       </div>
                     </div>
+                    <div class="col-md-12 mb-1">
+                      <div class="form-group">
+                        <input name="endDate" id="endate" type="date" class="form-control form-control-lg form-control-a" 
+                          placeholder="Hasta *" required>
+                      </div>
+                    </div>
+                   
                     <div class="col-md-12">
-                      <button type="submit" class="btn btn-a">Send Message</button>
+                      <button type="submit" class="btn btn-a">Reservar</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-        </div> -->
       </div>
     </div>
   </section>
@@ -427,18 +431,16 @@
             </p>
           </div>
           <div class="credits">
-            <!--
               All the links in the footer should remain intact.
               You can delete the links only if you purchased the pro version.
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
             -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
         </div>
       </div>
     </div>
-  </footer> -->
+  </footer> 
   <!--/ Footer End /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

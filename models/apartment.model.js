@@ -4,18 +4,18 @@ const { Schema, model } = require("mongoose");
 const apartmentSchema = new Schema({ 
     title:{
         type: String,
-        require: true
+        required: true
     },
 
     description: {
         type: String,
-        require: true
+        required: true
     },
     
 
     price:{
         type: Number,
-        require: true
+        required: true
     },
 
     size:{
@@ -25,7 +25,7 @@ const apartmentSchema = new Schema({
 
     mainPhoto:{
         type: String,
-        require: true
+        required: true
         // TODO Luego sacar el require y poner que se por defecto la primera del array de fotos
     },
 
