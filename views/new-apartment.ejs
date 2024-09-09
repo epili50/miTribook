@@ -84,6 +84,22 @@
                       <div class="validation"></div>
                     </div>
                   </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <input type="checkbox" id="wifi" name="services" value="Wifi" <% if (apartment.services.includes('Wifi')) { %> checked <% } %>> Wifi<br>
+                        <input type="checkbox" id="airConditioner" name="services" value="Aire Acondicionado" <% if (apartment.services.includes('Aire Acondicionado')) { %> checked <% } %>> Aire Acondicionado<br>
+                        <input type="checkbox" id="heater" name="services" value="Calefacción" <% if (apartment.services.includes('Calefacción')) { %> checked <% } %>> Calefacción<br>
+                      <div class="validation"></div>
+                      </div>
+                    </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <input type="checkbox" id="tv" name="services" value="TV" <% if (apartment.services.includes('TV')) { %> checked <% } %>> TV<br>
+                        <input type="checkbox" id="kitchen" name="services" value="Cocina" <% if (apartment.services.includes('Cocina')) { %> checked <% } %>> Cocina<br>
+                        <input type="checkbox" id="disability" name="services" value="Servicio para Discapacitados" <% if (apartment.services.includes('Servicio para Discapacitados')) { %> checked <% } %>> Servicio para Discapacitados<br>
+                      <div class="validation"></div>
+                    </div>
+                    </div>              
                   <div class="col-md-12 mb-3">
                     <div class="form-group">
                       <textarea type="text" name="description" class="form-control" name="message" cols="45" rows="8" placeholder="Descripcion de la propiedad" required><%= apartment.description %></textarea>

@@ -23,7 +23,8 @@ const getEditAparmentForm = async (req, res) => {
 };
 
 const postNewApartment = async (req, res) => {
-  const { id, title, description, price, size, mainPhoto } = req.body;
+  const { id, title, description, price, size, mainPhoto, services } = req.body;
+  console.log("🚀 ~ postNewApartment ~ req.body:", req.body)
 
   if (id) {
     await Apartment.findByIdAndUpdate(id, {
@@ -32,6 +33,7 @@ const postNewApartment = async (req, res) => {
       price,
       size,
       mainPhoto,
+      services
     });
     res.send("Apartamento actualizado");
     return;
@@ -43,6 +45,7 @@ const postNewApartment = async (req, res) => {
     price,
     size,
     mainPhoto,
+    services
   });
 
   res.send("Apartamaneto creado");

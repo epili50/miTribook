@@ -30,13 +30,18 @@ const apartmentSchema = new Schema({
     },
 
     services:{
-        wifi: Boolean,
-        airConditioner: Boolean,
-        kitchen: Boolean,
-        disability: Boolean,
-        heater: Boolean,
-        tv: Boolean
-    }
+        type:[String],
+        enum: ['Wifi', 'Aire Acondicionado', 'Calefacción', 'TV', 'Cocina', 'Servicio para Discapacitados']
+    }, 
+
+    // services:{
+    //     wifi: Boolean,
+    //     airConditioner: Boolean,
+    //     kitchen: Boolean,
+    //     disability: Boolean,
+    //     heater: Boolean,
+    //     tv: Boolean
+    // }
 
 
 })
