@@ -267,19 +267,19 @@
                                 placeholder="Selecciona un rango de fechas" required>
                             </div>
                           </div>
-                          
-                          </div>
 
-                          <div class="col-md-12">
-                            <button type="submit" class="btn btn-a">Reservar</button>
-                          </div>
                         </div>
-                      </form>
+
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-a">Reservar</button>
+                        </div>
                     </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
       </section>
       <!--/ Property Single End /-->
 
@@ -446,6 +446,24 @@
       <div id="preloader"></div>
 
       <%- include('./partials/scripts') %>
+        <!-- JS Flatpickr -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <!-- JS para Flatpickr -->
+
+        <script>
+          const disabledDatesApartment = "<%= disabledDates %>".split(',');
+          console.log(disabledDatesApartment);
+
+
+          flatpickr("#dateRange", {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            locale: "es",
+            disable: disabledDatesApartment
+          });
+
+
+        </script>
 
 </body>
 

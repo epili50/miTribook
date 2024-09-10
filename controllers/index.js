@@ -19,15 +19,37 @@ const getApartmentById = async (req, res) => {
   //Buscarlo en la BBDD
   const selectedApartment = await Apartment.findById(idApartment);
 
+  // Obtener todas las reservas de ese apartamento
+  const reservations = await Reservation.find({ apartment: idApartment }).select("startDate endDate");
+
+  // Generar el array de fechas deshabilitadas
+  const getDisabledDates = (reservations) => {
+    const disabledDates = [];
+    reservations.forEach((reservation) => {
+      let start = new Date(reservation.startDate);
+      const end = new Date(reservation.endDate);
+      while (start <= end) {
+        disabledDates.push(start.toISOString().split("T")[0]);
+        start.setDate(start.getDate() + 1);
+      }
+    });
+    return disabledDates;
+  };
+
+  const disabledDates = getDisabledDates(reservations);
+  console.log("🚀 ~ getApartmentById ~ disabledDates:", disabledDates)
+
+
+
   //Renderizarlo
   res.render("detail-Apartment", {
     selectedApartment,
+    disabledDates
   });
 };
 
 const searchApartments = async (req, res) => {
   const { priceMax } = req.query;
-  console.log("🚀 ~ searchApartments ~ priceMax:", priceMax);
 
   // Obtenemos todos los apartamentos de la base de datos
   const apartments = await Apartment.find({
@@ -63,6 +85,8 @@ const postNewReservation = async (req, res) => {
   const endDate = new Date(`${yearEnd}-${monthEnd}-${dayEnd}`);
 
   const apartment = await Apartment.findById(idApartment);
+
+  // Creación de la nueva reserva
 
   await Reservation.create({
     email,

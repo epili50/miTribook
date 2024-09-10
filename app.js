@@ -37,6 +37,9 @@ app.use((req, res, next) => {
     // Si el usuario esta autentificado entonces es que es de tipo administrador
     res.locals.isAdmin = req.session.isAuthenticated;
 
+    //PAso la variable de fechas reservadas a todas las vistas
+    res.locals.disabledDates = res.locals.disabledDates || [];
+
     // tenemos que ejecutar next() para que la petición HTTP siga su curso
     next();
 });
