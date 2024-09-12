@@ -18,7 +18,7 @@ const apartmentSchema = new Schema({
         default: 'Point'
       },
       coordinates: {
-        type: [Number], // Array de números: [longitud, latitud]
+        type: [Number], // Array de números: [length, latitude,]
         
       }
     },
@@ -58,7 +58,8 @@ const apartmentSchema = new Schema({
             },
             descriptionPhoto: {
                 type: String,
-                maxlength: 50  // Máximo 50 caracteres
+                maxlength: 50,  // Máximo 50 caracteres
+                default: ""
             }
         }],
         validate: {
@@ -87,14 +88,7 @@ const apartmentSchema = new Schema({
     mainPhoto:{
         type: String,
         required: true
-        // TODO Luego sacar el require y poner que se por defecto la primera del array de fotos
-        // Setter para establecer `mainPhoto` como la primera foto del array `photos`
-        // set: function(value) {
-        //     if (this.photos.length > 0) {
-        //         return this.photos[0].photo; // Usar la primera foto del array como `mainPhoto`
-        //     }
-        //     return value;
-        // }
+    
     },
 
     services:{

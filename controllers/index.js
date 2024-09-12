@@ -37,7 +37,6 @@ const getApartmentById = async (req, res) => {
   };
 
   const disabledDates = getDisabledDates(reservations);
-  console.log("🚀 ~ getApartmentById ~ disabledDates:", disabledDates)
 
 
 

@@ -23,17 +23,42 @@ const getEditAparmentForm = async (req, res) => {
 };
 
 const postNewApartment = async (req, res) => {
-  const { id, title, description, price, size, mainPhoto, services } = req.body;
+  const { id, title, city, length, latitude, price, size, maxGuest, rooms, beds, bathrooms, mainPhoto, descriptionPhoto1, photo2, descriptionPhoto2, photo3, descriptionPhoto3, photo4, descriptionPhoto4, services, description, rules } = req.body;
   console.log("🚀 ~ postNewApartment ~ req.body:", req.body)
+  const photos=[{
+    photo:mainPhoto, 
+    descriptionPhoto: descriptionPhoto1},
+    
+    {photo:photo2,
+    descriptionPhoto: descriptionPhoto2},
+
+    {photo3,
+    descriptionPhoto: descriptionPhoto3},
+
+    {photo4,
+    descriptionPhoto: descriptionPhoto4},
+
+  ]
+
+  // length = parseFloat(length);  // Convertir a número
+  // latitude = parseFloat(latitude);  // Convertir a número
 
   if (id) {
     await Apartment.findByIdAndUpdate(id, {
       title,
-      description,
+      city,
+      location:[parseFloat(length), parseFloat(latitude)],
       price,
       size,
+      maxGuest,
+      rooms,
+      beds,
+      bathrooms,
       mainPhoto,
-      services
+      photos,
+      services,
+      description,
+      rules
     });
     res.send("Apartamento actualizado");
     return;
@@ -41,11 +66,19 @@ const postNewApartment = async (req, res) => {
 
   await Apartment.create({
     title,
-    description,
+    city,
+    location:[latitude, length],
     price,
     size,
+    maxGuest,
+    rooms,
+    beds,
+    bathrooms,
     mainPhoto,
-    services
+    photos,
+    services,
+    description,
+    rules
   });
 
   res.send("Apartamaneto creado");
