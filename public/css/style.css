@@ -106,6 +106,12 @@ a:hover {
   margin: 0;
 }
 
+/*------/ ]My Rules  /------*/
+
+label{
+  font-weight: bold;
+}
+
 /*------/ Nav Pills  /------*/
 
 .nav-pills-a.nav-pills .nav-link {

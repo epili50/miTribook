@@ -15,6 +15,10 @@ const getEditAparmentForm = async (req, res) => {
 
   // 2. Ir a la base de datos y obtener el apartamento dada su id
   const apartment = await Apartment.findById(idApartment);
+  
+  // console.log(apartment.location.cordinates[0]);
+  
+  
 
   // 3. Pasar este apartmento a la vista para pre rellenar todos los campos
   res.render("new-apartment", {
@@ -40,14 +44,16 @@ const postNewApartment = async (req, res) => {
 
   ]
 
-  // length = parseFloat(length);  // Convertir a número
-  // latitude = parseFloat(latitude);  // Convertir a número
+  
 
   if (id) {
     await Apartment.findByIdAndUpdate(id, {
       title,
       city,
-      location:[parseFloat(length), parseFloat(latitude)],
+      location:{
+        type:'Point',
+        coordinates:[parseFloat(length) || 0, parseFloat(latitude) || 0]
+      },
       price,
       size,
       maxGuest,
@@ -67,7 +73,9 @@ const postNewApartment = async (req, res) => {
   await Apartment.create({
     title,
     city,
-    location:[latitude, length],
+    location:{
+      cordinates:[parseFloat(length) || 0, parseFloat(latitude) || 0]
+    },
     price,
     size,
     maxGuest,

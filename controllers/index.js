@@ -38,6 +38,13 @@ const getApartmentById = async (req, res) => {
 
   const disabledDates = getDisabledDates(reservations);
 
+  //Para los que tienen como primera foto '$mainPhoto'
+  selectedApartment.photos.forEach(photo => {
+    if (photo.photo === '$mainPhoto') {
+      photo.photo = selectedApartment.mainPhoto;
+    }
+  });
+
 
 
   //Renderizarlo

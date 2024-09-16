@@ -21,7 +21,9 @@
                 <h1 class="title-single">
                   <%= selectedApartment.title %>
                 </h1>
-                <span class="color-text-a">Chicago, IL 606543</span>
+                <span class="color-text-a">
+                  <%= selectedApartment.city %>
+                </span>
               </div>
             </div>
             <div class="col-md-12 col-lg-4">
@@ -50,10 +52,15 @@
           <div class="row">
             <div class="col-sm-12">
               <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-                <div class="carousel-item-b">
-                  <img src=<%=selectedApartment.mainPhoto %> alt="">
-                </div>
-
+             
+                  <% selectedApartment.photos.forEach(function (photoObj) { %> <!-- Accede al objeto completo -->
+                    <% if (photoObj.photo) { %> <!-- Verifica si el campo 'photo' existe -->
+                      <div class="carousel-item-b">
+                        <img src="<%= photoObj.photo %>" alt="<%= photoObj.descriptionPhoto || 'Imagen de la propiedad' %>"> <!-- Accede al campo 'photo' -->
+                      </div>
+                    <% } %> <!-- Si 'photo' no existe, no renderizará el img -->
+                  <% }) %>
+               
               </div>
               <div class="row justify-content-between">
                 <div class="col-md-5 col-lg-4">
@@ -82,35 +89,31 @@
 
                         <li class="d-flex justify-content-between">
                           <strong>Ciudad:</strong>
-                          <span>Chicago</span>
+                          <span><%= selectedApartment.city %></span>
                         </li>
-                        <!-- <li class="d-flex justify-content-between">
-                      <strong>Property Type:</strong>
-                      <span>House</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Status:</strong>
-                      <span>Sale</span>
-                    </li> -->
                         <li class="d-flex justify-content-between">
-                          <strong>Area:</strong>
+                          <strong>Habitaciones</strong>
+                          <span><%= selectedApartment.rooms %></span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                          <strong>Camas</strong>
+                          <span><%= selectedApartment.beds %></span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                          <strong>Baños</strong>
+                          <span><%= selectedApartment.bathrooms %></span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                          <strong>Superficie:</strong>
                           <span>
                             <%= selectedApartment.size %>
                               <sup>2</sup>
                           </span>
                         </li>
-                        <!-- <li class="d-flex justify-content-between">
-                      <strong>Beds:</strong>
-                      <span>4</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Baths:</strong>
-                      <span>2</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Garage:</strong>
-                      <span>1</span>
-                    </li> -->
+                        <li class="d-flex justify-content-between">
+                          <strong>N° máximo de huéspedes;</strong>
+                          <span> <%= selectedApartment.maxGuest %></span>
+                        </li>                       
                       </ul>
                     </div>
                   </div>
@@ -145,8 +148,26 @@
                         <% }) %>
                     </ul>
                   </div>
+                  <div class="row section-t3">
+                    <div class="col-sm-12">
+                      <div class="title-box-d">
+                        <h3 class="title-d">Reglas</h3> <span class="color-text-a">en este apartamento no está permitido:</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="amenities-list color-text-a">
+                    <ul class="list-a no-margin">
+                      <% selectedApartment.rules.forEach(function(rule) { %>
+                        <li>
+                          <%= rule %>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
                 </div>
+                
               </div>
+              
             </div>
             <!-- <div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
@@ -246,7 +267,9 @@
                 </div>
               </div>
             </div> -->
-                  <div class="col-md-12 col-lg-4">
+            
+            <div class="col-md-12 col-lg-4">
+                    
                     <div class="title-box-d">
                       <h3 class="title-d">Reservas</h3>
                     </div>

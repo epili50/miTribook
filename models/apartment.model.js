@@ -18,7 +18,8 @@ const apartmentSchema = new Schema({
         default: 'Point'
       },
       coordinates: {
-        type: [Number], // Array de números: [length, latitude,]
+        type: [Number], // Array de números: [length, latitude,],
+        default: [0, 0],
         
       }
     },
