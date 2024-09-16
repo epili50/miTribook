@@ -112,6 +112,18 @@ label{
   font-weight: bold;
 }
 
+.description-photo{
+  color: white;
+  text-align: right;
+  padding: 5px;
+  text-shadow: 
+  -1px -1px 0 black,  
+   1px -1px 0 black,
+  -1px  1px 0 black,
+   1px  1px 0 black;
+
+}
+
 /*------/ Nav Pills  /------*/
 
 .nav-pills-a.nav-pills .nav-link {
