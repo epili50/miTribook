@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('./partials/head') %>
 </head>
@@ -9,41 +10,43 @@
   <div class="click-closed"></div>
   <%- include('./partials/search-form') %>
 
-  <%- include('./partials/nav') %>
+    <%- include('./partials/nav') %>
 
-  <!--/ Intro Single star /-->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single"><%= apartment._id? 'Editar' : 'Agregar Nuevo' %> Apartmento</h1>
-            <span class="color-text-a"> 
-                Rellene este formulario <%= apartment._id? 'Editar su' : 'ofrecer una nueva' %> propiedad</span>
+      <!--/ Intro Single star /-->
+      <section class="intro-single">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-8">
+              <div class="title-single-box">
+                <h1 class="title-single">
+                  <%= apartment._id? 'Editar' : 'Agregar Nuevo' %> Apartmento
+                </h1>
+                <span class="color-text-a">
+                  Rellene este formulario <%= apartment._id? 'Editar su' : 'ofrecer una nueva' %> propiedad</span>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Contact
+                  </li>
+                </ol>
+              </nav>
+            </div>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="/">Home</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Contact
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Intro Single End /-->
+      </section>
+      <!--/ Intro Single End /-->
 
-  <!--/ Contact Star /-->
-  <section class="contact">
-    <div class="container">
-      <div class="row">
-        <!-- <div class="col-sm-12">
+      <!--/ Contact Star /-->
+      <section class="contact">
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-sm-12">
           <div class="contact-map box">
             <div id="map" class="contact-map">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834"
@@ -51,250 +54,284 @@
             </div>
           </div>
         </div> -->
-        <div class="col-sm-12 section-t8">
-          <div class="row">
-            <div class="col-md-7">
-              <form class="form-a contactForm" action="/admin/apartment/new-apartment" method="post">
-                <div id="sendmessage">El apartamento fue agregado correctamente</div>
-                <div id="errormessage"></div>
-                <div class="row">
-                  <div class="col-md-12 mb-3">
-                    <div> <input type="hidden" name="id" id="id" value="<%= apartment._id %>">
-                    </div>
-                    <div class="form-group">
-                      <label for="title">Nombre de la propiedad</label>
-                      <input type="text" name="title" id="title" class="form-control form-control-lg form-control-a"  maxlength="30" pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?: [A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*" required value="<%= apartment.title %>">
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="city">Ciudad</label>
-                      <input type="text" name="city" id="city" class="form-control form-control-lg form-control-a" required value='<%= apartment.city %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                      <label for="lenght">Longitud</label>
-                      <input type="number" name="length" id="length" class="form-control form-control-lg form-control-a" step="0.0001" placeholder="Longitud"  value= "<%= apartment && apartment.location && apartment.location.coordinates && apartment.location.coordinates.length ? apartment.location.coordinates[0] : 0 %>"> 
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                      <label for="latitude">Latitud</label>
-                      <input type="number" name="latitude" id="latitude" class="form-control form-control-lg form-control-a" step="0.0001" placeholder="Latitud"  value='<%= apartment && apartment.location && apartment.location.coordinates && apartment.location.coordinates.latitude ? apartment.location.coordinates[1] : 0%>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="price">Precio por noche</label>
-                      <input type="number" name="price" id="price" class="form-control form-control-lg form-control-a" min="1" step="0.01" placeholder="0.00" required value='<%= apartment.price %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="size">Metros cuadrados</label>
-                      <input type="number" name="size" id="size" class="form-control form-control-lg form-control-a" placeholder="0" min="1" step="0.01" required value='<%= apartment.size %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="maxGuest">N° de huéspedes</label>
-                      <input type="number" name="maxGuest" id="maxGuest" class="form-control form-control-lg form-control-a" placeholder="2" min="1" required value='<%= apartment.maxGuest %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="rooms">N° de habitaciones</label>
-                      <input type="number" name="rooms" id="rooms" class="form-control form-control-lg form-control-a" placeholder="0" min="1"  required value='<%= apartment.rooms %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="beds">N° de camas</label>
-                      <input type="number" name="beds" id="beds" class="form-control form-control-lg form-control-a" placeholder="0" min="1"  required value='<%= apartment.beds %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="form-group">
-                      <label for="bathrooms">N° de baños</label>
-                      <input type="number" name="bathrooms" id="bathrooms" class="form-control form-control-lg form-control-a" placeholder="0" min="1" step="1" required value='<%= apartment.bathrooms %>'>
-                      <div class="validation"></div>
-                    </div>                    
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="mainPhoto">Foto principal</label>
-                      <input type="url" name="mainPhoto" id="mainPhoto" class="form-control form-control-lg form-control-a" placeholder="URL" required value='<%= apartment.mainPhoto %>'>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="descriptionPhoto1">Descripción de la foto principal</label>
-                      <input type="text" name="descriptionPhoto1" id="descriptionPhoto1"
-                      class="form-control form-control-lg form-control-a" maxlength="50" 
-                      value='<%= apartment && apartment.photos && apartment.photos[0] && apartment.photos[0].descriptionPhoto ? apartment.photos[0].descriptionPhoto : '' %>' >
-                      <div class="validation"></div>
-                   </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="photo2">Segunda foto</label>
-                      <input type="url" name="photo2" id="photo2" class="form-control form-control-lg form-control-a" placeholder="URL" value='<%= apartment && apartment.photos && apartment.photos[1] && apartment.photos[1].photo ? apartment.photos[1].photo : '' %>'>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="descriptionPhoto2">Descripción de la segunda foto</label>
-                      <input type="text" name="descriptionPhoto2" id="descriptionPhoto2"
-                      class="form-control form-control-lg form-control-a" maxlength="50" value='<%= apartment && apartment.photos && apartment.photos[1] && apartment.photos[1].descriptionPhoto ? apartment.photos[1].descriptionPhoto : '' %>'>
-                      <div class="validation"></div>
-                   </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="photo3">Tercera foto</label>
-                      <input type="url" name="photo3" id="photo3" class="form-control form-control-lg form-control-a" placeholder="URL" value=<%= apartment && apartment.photos && apartment.photos[2] && apartment.photos[2].photo ? apartment.photos[2].photo : '' %>>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="descriptionPhoto3">Descripción de la tercera foto</label>
-                      <input type="text" name="descriptionPhoto3" id="descriptionPhoto3"
-                      class="form-control form-control-lg form-control-a" maxlength="50" value='<%= apartment && apartment.photos && apartment.photos[2] && apartment.photos[2].descriptionPhoto ? apartment.photos[2].descriptionPhoto : '' %>' > 
-                      <div class="validation"></div>
-                   </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="photo4">Cuarta foto</label>
-                      <input type="url" name="photo4" id="photo4" class="form-control form-control-lg form-control-a" placeholder="URL" value='<%= apartment && apartment.photos && apartment.photos[3] && apartment.photos[3].photo ? apartment.photos[3].photo : '' %>'>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="descriptionPhoto4">Descripción de la cuarta foto</label>
-                      <input type="text" name="descriptionPhoto4" id="descriptionPhoto4"
-                      class="form-control form-control-lg form-control-a" maxlength="50" value='<%= apartment && apartment.photos && apartment.photos[3] && apartment.photos[3].descriptionPhoto ? apartment.photos[3].descriptionPhoto : '' %>'>
-                      <div class="validation"></div>
-                   </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <label for="services">Servicios incluidos en la propiedad</label>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">                    
-                      <input type="checkbox" id="wifi" name="services" value="Wifi" 
-                      <% if (apartment && apartment.services && apartment.services.includes('Wifi')) { %> 
-                        checked 
-                      <% } %>
-                    > Wifi<br>
-                      <div class="validation"></div>
-                      <input type="checkbox" id="airConditioner" name="services" value="Aire Acondicionado" 
-                      <% if (apartment && apartment.services && apartment.services.includes('Aire Acondicionado')) { %> 
-                        checked 
-                      <% } %> 
-                    > Aire Acondicionado<br>
-                      <div class="validation"></div>
-                      <input type="checkbox" id="heater" name="services" value="Calefacción" 
-                      <% if (apartment && apartment.services && apartment.services.includes('Calefacción')) { %> 
-                        checked 
+            <div class="col-sm-12 section-t8">
+              <div class="row">
+                <div class="col-md-7">
+                  <form class="form-a contactForm" action="/admin/apartment/new-apartment" method="post">
+                    <div id="sendmessage">El apartamento fue agregado correctamente</div>
+                    <div id="errormessage"></div>
+                    <div class="row">
+                      <div class="col-md-12 mb-3">
+                        <div> <input type="hidden" name="id" id="id" value="<%= apartment._id %>">
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Nombre de la propiedad</label>
+                          <input type="text" name="title" id="title" class="form-control form-control-lg form-control-a"
+                            maxlength="30" pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?: [A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*" required
+                            value="<%= apartment.title %>">
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="city">Ciudad</label>
+                          <input type="text" name="city" id="city" class="form-control form-control-lg form-control-a"
+                            required value='<%= apartment.city %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label for="lenght">Longitud</label>
+                          <input type="number" name="length" id="length"
+                            class="form-control form-control-lg form-control-a" step="0.0001" 
+                            value="<%= apartment && apartment.location && apartment.location.coordinates && apartment.location.coordinates.length ? apartment.location.coordinates[0] : 0 %>">
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label for="latitude">Latitud</label>
+                          <input type="number" name="latitude" id="latitude"
+                            class="form-control form-control-lg form-control-a" step="0.0001" 
+                            value="<%= apartment && apartment.location && apartment.location.coordinates && apartment.location.coordinates.length ? apartment.location.coordinates[1] : 0 %>">
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="price">Precio por noche</label>
+                          <input type="number" name="price" id="price"
+                            class="form-control form-control-lg form-control-a" min="1" step="0.01" placeholder="0.00"
+                            required value='<%= apartment.price %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="size">Metros cuadrados</label>
+                          <input type="number" name="size" id="size" class="form-control form-control-lg form-control-a"
+                            placeholder="0" min="1" step="0.01" required value='<%= apartment.size %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="maxGuest">N° de huéspedes</label>
+                          <input type="number" name="maxGuest" id="maxGuest"
+                            class="form-control form-control-lg form-control-a" placeholder="2" min="1" required
+                            value='<%= apartment.maxGuest %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="rooms">N° de habitaciones</label>
+                          <input type="number" name="rooms" id="rooms"
+                            class="form-control form-control-lg form-control-a" placeholder="0" min="1" required
+                            value='<%= apartment.rooms %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="beds">N° de camas</label>
+                          <input type="number" name="beds" id="beds" class="form-control form-control-lg form-control-a"
+                            placeholder="0" min="1" required value='<%= apartment.beds %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                          <label for="bathrooms">N° de baños</label>
+                          <input type="number" name="bathrooms" id="bathrooms"
+                            class="form-control form-control-lg form-control-a" placeholder="0" min="1" step="1"
+                            required value='<%= apartment.bathrooms %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="mainPhoto">Foto principal</label>
+                          <input type="url" name="mainPhoto" id="mainPhoto"
+                            class="form-control form-control-lg form-control-a" placeholder="URL" required
+                            value='<%= apartment.mainPhoto %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="descriptionPhoto1">Descripción de la foto principal</label>
+                          <input type="text" name="descriptionPhoto1" id="descriptionPhoto1"
+                            class="form-control form-control-lg form-control-a" maxlength="50"
+                            value='<%= apartment && apartment.photos && apartment.photos[0] && apartment.photos[0].descriptionPhoto ? apartment.photos[0].descriptionPhoto : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="photo2">Segunda foto</label>
+                          <input type="url" name="photo2" id="photo2"
+                            class="form-control form-control-lg form-control-a" placeholder="URL"
+                            value='<%= apartment && apartment.photos && apartment.photos[1] && apartment.photos[1].photo ? apartment.photos[1].photo : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="descriptionPhoto2">Descripción de la segunda foto</label>
+                          <input type="text" name="descriptionPhoto2" id="descriptionPhoto2"
+                            class="form-control form-control-lg form-control-a" maxlength="50"
+                            value='<%= apartment && apartment.photos && apartment.photos[1] && apartment.photos[1].descriptionPhoto ? apartment.photos[1].descriptionPhoto : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="photo3">Tercera foto</label>
+                          <input type="url" name="photo3" id="photo3"
+                            class="form-control form-control-lg form-control-a" placeholder="URL" value=<%=apartment &&
+                            apartment.photos && apartment.photos[2] && apartment.photos[2].photo ?
+                            apartment.photos[2].photo : '' %>>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="descriptionPhoto3">Descripción de la tercera foto</label>
+                          <input type="text" name="descriptionPhoto3" id="descriptionPhoto3"
+                            class="form-control form-control-lg form-control-a" maxlength="50"
+                            value='<%= apartment && apartment.photos && apartment.photos[2] && apartment.photos[2].descriptionPhoto ? apartment.photos[2].descriptionPhoto : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="photo4">Cuarta foto</label>
+                          <input type="url" name="photo4" id="photo4"
+                            class="form-control form-control-lg form-control-a" placeholder="URL"
+                            value='<%= apartment && apartment.photos && apartment.photos[3] && apartment.photos[3].photo ? apartment.photos[3].photo : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="descriptionPhoto4">Descripción de la cuarta foto</label>
+                          <input type="text" name="descriptionPhoto4" id="descriptionPhoto4"
+                            class="form-control form-control-lg form-control-a" maxlength="50"
+                            value='<%= apartment && apartment.photos && apartment.photos[3] && apartment.photos[3].descriptionPhoto ? apartment.photos[3].descriptionPhoto : '' %>'>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <label for="services">Servicios incluidos en la propiedad</label>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input type="checkbox" id="wifi" name="services" value="Wifi" <% if (apartment &&
+                            apartment.services && apartment.services.includes('Wifi')) { %>
+                          checked
+                          <% } %>
+                            > Wifi<br>
+                            <div class="validation"></div>
+                            <input type="checkbox" id="airConditioner" name="services" value="Aire Acondicionado" <% if
+                              (apartment && apartment.services && apartment.services.includes('Aire Acondicionado')) {
+                              %>
+                            checked
+                            <% } %>
+                              > Aire Acondicionado<br>
+                              <div class="validation"></div>
+                              <input type="checkbox" id="heater" name="services" value="Calefacción" <% if (apartment &&
+                                apartment.services && apartment.services.includes('Calefacción')) { %>
+                              checked
+                              <% } %>
+                                > Calefacción<br>
+                                <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input type="checkbox" id="tv" name="services" value="TV" <% if (apartment &&
+                            apartment.services && apartment.services.includes('TV')) { %>
+                          checked
+                          <% } %>
+                            > TV<br>
+                            <div class="validation"></div>
+                            <input type="checkbox" id="kitchen" name="services" value="Cocina" <% if (apartment &&
+                              apartment.services && apartment.services.includes('Cocina')) { %>
+                            checked
+                            <% } %>
+                              > Cocina<br>
+                              <div class="validation"></div>
+                              <input type="checkbox" id="disability" name="services"
+                                value="Servicio para Discapacitados" <% if (apartment && apartment.services &&
+                                apartment.services.includes('Servicio para Discapacitados')) { %> checked
+                              <% } %>
+                                > Servicio para Discapacitados<br>
+                                <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <label for="description">Descripción de la propiedad</label>
+                          <textarea type="text" name="description" class="form-control" name="message" cols="45"
+                            rows="8" required><%= apartment.description %></textarea>
+                          <div class="validation"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <label for="services">Reglas: marque los aspectos NO permitidos en la propiedad</label>
+                      </div>
+                      <div class="col-md-12 mb-3"></div>
+                      <div class="form-group">
+                        <input type="checkbox" id="smoke" name="rules" value="Fumar" <% if (apartment && apartment.rules
+                          && apartment.rules.includes('Fumar')) { %>
+                        checked
                         <% } %>
-                    > Calefacción<br>
-                      <div class="validation"></div>
+                          > Fumar&emsp;
+                          <div class="validation"></div>
+                          <input type="checkbox" id="pets" name="rules" value="Mascotas" <% if (apartment &&
+                            apartment.rules && apartment.rules.includes('Mascotas')) { %>
+                          checked
+                          <% } %>
+                            > Mascotas&emsp;
+                            <div class="validation"></div>
+                            <input type="checkbox" id="parties" name="rules" value="Fiestas" <% if (apartment &&
+                              apartment.rules && apartment.rules.includes('Fiestas')) { %>
+                            checked
+                            <% } %>
+                              > Fiestas&emsp;
+                              <div class="validation"></div>
+                              <input type="checkbox" id="guests" name="rules" value="Invitados" <% if (apartment &&
+                                apartment.rules && apartment.rules.includes('Invitados')) { %>
+                              checked
+                              <% } %>
+                                > Invitados&emsp;
+                                <div class="validation"></div>
                       </div>
                     </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                      <input type="checkbox" id="tv" name="services" value="TV" 
-                      <% if (apartment && apartment.services && apartment.services.includes('TV')) { %> 
-                        checked 
-                        <% } %>
-                      > TV<br>
-                        <div class="validation"></div>
-                      <input type="checkbox" id="kitchen" name="services" value="Cocina" 
-                      <% if (apartment && apartment.services && apartment.services.includes('Cocina')) { %> 
-                        checked 
-                        <% } %>
-                      > Cocina<br>
-                        <div class="validation"></div>
-                      <input type="checkbox" id="disability" name="services" value="Servicio para Discapacitados" 
-                      <%  if (apartment && apartment.services && apartment.services.includes('Servicio para Discapacitados')) { %> checked 
-                        <% } %>
-                      > Servicio para Discapacitados<br>
-                        <div class="validation"></div>
+                    <div class="col-md-12">
+                      <input type="submit" value=<%=apartment._id? 'Editar propiedad' : 'Agregar propiedad' %>
+                      class="btn btn-a">
                     </div>
-                    </div>              
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <label for="description">Descripción de la propiedad</label>
-                      <textarea type="text" name="description" class="form-control" name="message" cols="45" rows="8"  required><%= apartment.description %></textarea>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <label for="services">Reglas: marque los aspectos NO permitidos en la propiedad</label>
-                  </div>
-                  <div class="col-md-12 mb-3"></div>
-                    <div class="form-group">
-                      <input type="checkbox" id="smoke" name="rules" value="Fumar" 
-                      <% if (apartment && apartment.rules && apartment.rules.includes('Fumar')) { %> 
-                      checked 
-                        <% } %>
-                      > Fumar&emsp;
-                       <div class="validation"></div>
-                      <input type="checkbox" id="pets" name="rules" value="Mascotas" 
-                      <% if (apartment && apartment.rules && apartment.rules.includes('Mascotas')) { %> 
-                      checked 
-                        <% } %>
-                      > Mascotas&emsp;
-                        <div class="validation"></div>
-                      <input type="checkbox" id="parties" name="rules" value="Fiestas" 
-                      <% if (apartment && apartment.rules && apartment.rules.includes('Fiestas')) { %> 
-                        checked 
-                          <% } %>
-                      > Fiestas&emsp;
-                        <div class="validation"></div>
-                      <input type="checkbox" id="guests" name="rules" value="Invitados" 
-                      <% if (apartment && apartment.rules && apartment.rules.includes('Invitados')) { %> 
-                        checked 
-                          <% } %>
-                      > Invitados&emsp;
-                      <div class="validation"></div>
-                      </div>
-                    </div>
-                  <div class="col-md-12">
-                    <input type="submit" value=<%= apartment._id? 'Editar propiedad' : 'Agregar propiedad' %> class="btn btn-a">
-                  </div>
                 </div>
-              </form>
+                </form>
+              </div>
+
             </div>
-         
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Contact End /-->
+        </div>
+      </section>
+      <!--/ Contact End /-->
 
 
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+      <div id="preloader"></div>
 
-  <%- include('./partials/scripts') %>
-  
+      <%- include('./partials/scripts') %>
+
 </body>
+
 </html>

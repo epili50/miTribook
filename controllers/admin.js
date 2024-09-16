@@ -18,7 +18,7 @@ const getEditAparmentForm = async (req, res) => {
   
   // console.log(apartment.location.cordinates[0]);
   
-  
+  console.log('ver esto: ', apartment.location.coordinates[1]);
 
   // 3. Pasar este apartmento a la vista para pre rellenar todos los campos
   res.render("new-apartment", {
@@ -44,6 +44,7 @@ const postNewApartment = async (req, res) => {
 
   ]
 
+ 
   
 
   if (id) {

@@ -155,7 +155,7 @@ label{
 
 .list-a li {
   position: relative;
-  width: 50%;
+  width: 100%;
   float: left;
   padding-left: 25px;
   padding-right: 5px;
@@ -1863,9 +1863,9 @@ footer .credits {
     font-size: 18px;
   }
 
-  .list-a li {
+  /* .list-a li {
     width: 33.333%;
-  }
+  } */
 
   .intro .intro-title-top {
     font-size: 1rem;

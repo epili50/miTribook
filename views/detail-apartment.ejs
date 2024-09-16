@@ -52,15 +52,24 @@
           <div class="row">
             <div class="col-sm-12">
               <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-             
-                  <% selectedApartment.photos.forEach(function (photoObj) { %> <!-- Accede al objeto completo -->
-                    <% if (photoObj.photo) { %> <!-- Verifica si el campo 'photo' existe -->
-                      <div class="carousel-item-b">
-                        <img src="<%= photoObj.photo %>" alt="<%= photoObj.descriptionPhoto || 'Imagen de la propiedad' %>"> <!-- Accede al campo 'photo' -->
-                      </div>
+
+                <% selectedApartment.photos.forEach(function (photoObj) { %> <!-- Accede al objeto completo -->
+                  <% if (photoObj.photo) { %> <!-- Verifica si el campo 'photo' existe -->
+                    <div class="carousel-item-b">
+                      <img src="<%= photoObj.photo %>"
+                        alt="<%= photoObj.descriptionPhoto || 'Imagen de la propiedad' %>">
+                      <!-- Accede al campo 'photo' -->
+
+                      <% if (photoObj.descriptionPhoto) { %>
+                        <div class="card-overlay-a-content description-photo">
+                          <%= photoObj.descriptionPhoto %> <!-- Accede al campo 'photo' -->
+                        </div>
+                        <% } %>
+
+                    </div>
                     <% } %> <!-- Si 'photo' no existe, no renderizará el img -->
-                  <% }) %>
-               
+                      <% }) %>
+
               </div>
               <div class="row justify-content-between">
                 <div class="col-md-5 col-lg-4">
@@ -89,19 +98,27 @@
 
                         <li class="d-flex justify-content-between">
                           <strong>Ciudad:</strong>
-                          <span><%= selectedApartment.city %></span>
+                          <span>
+                            <%= selectedApartment.city %>
+                          </span>
                         </li>
                         <li class="d-flex justify-content-between">
                           <strong>Habitaciones</strong>
-                          <span><%= selectedApartment.rooms %></span>
+                          <span>
+                            <%= selectedApartment.rooms %>
+                          </span>
                         </li>
                         <li class="d-flex justify-content-between">
                           <strong>Camas</strong>
-                          <span><%= selectedApartment.beds %></span>
+                          <span>
+                            <%= selectedApartment.beds %>
+                          </span>
                         </li>
                         <li class="d-flex justify-content-between">
                           <strong>Baños</strong>
-                          <span><%= selectedApartment.bathrooms %></span>
+                          <span>
+                            <%= selectedApartment.bathrooms %>
+                          </span>
                         </li>
                         <li class="d-flex justify-content-between">
                           <strong>Superficie:</strong>
@@ -112,8 +129,10 @@
                         </li>
                         <li class="d-flex justify-content-between">
                           <strong>N° máximo de huéspedes;</strong>
-                          <span> <%= selectedApartment.maxGuest %></span>
-                        </li>                       
+                          <span>
+                            <%= selectedApartment.maxGuest %>
+                          </span>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -151,7 +170,8 @@
                   <div class="row section-t3">
                     <div class="col-sm-12">
                       <div class="title-box-d">
-                        <h3 class="title-d">Reglas</h3> <span class="color-text-a">en este apartamento no está permitido:</span>
+                        <h3 class="title-d">Reglas</h3> <span class="color-text-a">en este apartamento no está
+                          permitido:</span>
                       </div>
                     </div>
                   </div>
@@ -165,9 +185,9 @@
                     </ul>
                   </div>
                 </div>
-                
+
               </div>
-              
+
             </div>
             <!-- <div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
@@ -267,9 +287,9 @@
                 </div>
               </div>
             </div> -->
-            
-            <div class="col-md-12 col-lg-4">
-                    
+
+                  <div class="col-md-12 col-lg-4">
+
                     <div class="title-box-d">
                       <h3 class="title-d">Reservas</h3>
                     </div>
