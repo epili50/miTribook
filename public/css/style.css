@@ -106,7 +106,7 @@ a:hover {
   margin: 0;
 }
 
-/*------/ ]My Rules  /------*/
+/*------/ My Rules  /------*/
 
 label{
   font-weight: bold;
@@ -122,6 +122,12 @@ label{
   -1px  1px 0 black,
    1px  1px 0 black;
 
+}
+
+.img-box-a{
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: cover;
 }
 
 /*------/ Nav Pills  /------*/
