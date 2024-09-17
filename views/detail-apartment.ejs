@@ -289,35 +289,41 @@
             </div> -->
 
                   <div class="col-md-12 col-lg-4">
+                    <% if (isAdmin) { %>
+                      <div class="col-md-12">
+                        <a class="btn btn-a" href="/admin/apartment/<%= selectedApartment._id %>/edit/">Editar</a>
+                      </div>
 
-                    <div class="title-box-d">
-                      <h3 class="title-d">Reservas</h3>
-                    </div>
-                    <div class="property-contact">
-                      <form action="/apartment/new-reservation" method="post" class="form-a">
-                        <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
-                        <div class="row">
-                          <div class="col-md-12 mb-1">
-                            <div class="form-group">
-                              <input type="email" name="email" id="email"
-                                class="form-control form-control-lg form-control-a" placeholder="Email *" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-1">
-                            <div class="form-group">
-                              <input name="dateRange" id="dateRange" type="text"
-                                class="form-control form-control-lg form-control-a"
-                                placeholder="Selecciona un rango de fechas" required>
-                            </div>
-                          </div>
-
+                      <% } else { %>
+                        <div class="title-box-d">
+                          <h3 class="title-d">Reservas</h3>
                         </div>
+                        <div class="property-contact">
+                          <form action="/apartment/new-reservation" method="post" class="form-a">
+                            <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
+                            <div class="row">
+                              <div class="col-md-12 mb-1">
+                                <div class="form-group">
+                                  <input type="email" name="email" id="email"
+                                    class="form-control form-control-lg form-control-a" placeholder="Email *" required>
+                                </div>
+                              </div>
+                              <div class="col-md-12 mb-1">
+                                <div class="form-group">
+                                  <input name="dateRange" id="dateRange" type="text"
+                                    class="form-control form-control-lg form-control-a"
+                                    placeholder="Selecciona un rango de fechas" required>
+                                </div>
+                              </div>
 
-                        <div class="col-md-12">
-                          <button type="submit" class="btn btn-a">Reservar</button>
+                            </div>
+
+                            <div class="col-md-12">
+                              <button type="submit" class="btn btn-a">Reservar</button>
+                            </div>
+                          </form>
                         </div>
-                    </div>
-                    </form>
+                        <% } %>
                   </div>
                 </div>
               </div>
