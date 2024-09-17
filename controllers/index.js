@@ -8,8 +8,16 @@ const getApartments = async (req, res) => {
   // Obtenemos todos los apartamentos de la base de datos
   const apartments = await Apartment.find({ isAvailable: { $ne: false } });
 
+    const cities = await getAllCities();
+    console.log("🚀 ~ getApartments ~ cities:", cities)
+
+
+  
+
   res.render("home", {
     apartments,
+    cities
+    
   });
 };
 
@@ -55,26 +63,47 @@ const getApartmentById = async (req, res) => {
 };
 
 const searchApartments = async (req, res) => {
-  const { priceMax } = req.query;
+
+  const cities = await getAllCities();
+
+  const { priceMax, priceMin, city } = req.query;
+  
+  const query ={
+    isAvailable: { $ne: false },
+  }
+
+  // Si priceMin y priceMax están presentes, agregarlos a la consulta de precio
+  if (priceMin || priceMax) {
+    query.price = {};
+    if (priceMin) query.price.$gte = priceMin;  // Precio mínimo
+    if (priceMax) query.price.$lte = priceMax;  // Precio máximo
+  }
+
+  // Si se proporciona una ciudad, agregarla a la consulta
+  if (city) {
+    query.city = city;
+  }
+
+  
 
   // Obtenemos todos los apartamentos de la base de datos
-  const apartments = await Apartment.find({
-    price: { $lte: req.query.priceMax },
-  });
+  const apartments = await Apartment.find(query)
 
-  //    //Por si la query viene vacia
-  //    if(!priceMax){
-  //     apartments = await Apartment.find();
 
-  //     res.render('home', {
-  //         apartments
-  //     });
-  // }
 
   res.render("home", {
     apartments,
+    cities
   });
 };
+
+const getAllCities = async () =>{
+  const apartments = await Apartment.find({ isAvailable: { $ne: false } });
+
+  return cities = [...new Set(apartments.map(apartment => apartment.city))];
+
+  
+}
 
 const postNewReservation = async (req, res) => {
   const { idApartment, email } = req.body;

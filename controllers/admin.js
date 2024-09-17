@@ -44,13 +44,11 @@ const postNewApartment = async (req, res) => {
 
   ]
 
-
+ const isAvailable = true;
 
  if(availableStatus == 'notAvailable'){
   isAvailable = false
- } else{
-  isAvailable = true
- }
+ } 
   
 
   if (id) {

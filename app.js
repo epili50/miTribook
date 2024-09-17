@@ -40,7 +40,6 @@ app.use((req, res, next) => {
     //PAso la variable de fechas reservadas a todas las vistas
     res.locals.disabledDates = res.locals.disabledDates || [];
 
-    res.locals.isAvailable = res.locals.isAvailable;
 
     // tenemos que ejecutar next() para que la petición HTTP siga su curso
     next();

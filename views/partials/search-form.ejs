@@ -1,19 +1,44 @@
- <!--/ Form Search Star /-->
- <div class="box-collapse">
-    <div class="title-box-d">
-      <h3 class="title-d">Buscar propiedad</h3>
-    </div>
-    <span class="close-box-collapse right-boxed ion-ios-close"></span>
-    <div class="box-collapse-wrap form">
-      <form action="/search" class="form-a">
-        <div class="row">
-          <div class="col-md-12 mb-2">
-            <div class="form-group">
-              <label for="priceMax">Precio máximo</label>
-              <input type="number" name="priceMax" id="priceMax" class="form-control form-control-lg form-control-a">
-            </div>
+<!--/ Form Search Star /-->
+<div class="box-collapse">
+  <div class="title-box-d">
+    <h3 class="title-d">Buscar propiedad</h3>
+  </div>
+  <span class="close-box-collapse right-boxed ion-ios-close"></span>
+  <div class="box-collapse-wrap form">
+    <form action="/search" class="form-a">
+      <div class="row">
+
+        <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="priceMax">Precio mínimo</label>
+            <input type="number" name="priceMin" id="priceMin" class="form-control form-control-lg form-control-a">
           </div>
-          <!-- <div class="col-md-6 mb-2">
+        </div>
+        <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="priceMax">Precio máximo</label>
+            <input type="number" name="priceMax" id="priceMax" class="form-control form-control-lg form-control-a">
+          </div>
+        </div>
+        <div class="col-md-12 mb-2">
+          <div class="form-group">
+            <label for="city">Ciudad</label>
+            <select name="city" id="city" class="form-control form-control-lg form-control-a">
+              <option value=""  selected></option>
+              <% if (cities && cities.length> 0) { %>
+                <% cities.forEach(function (c) { %>
+                  <option value="<%= c %>">
+                    <%= c %>
+                  </option>
+                  <% }) %>
+                    <% } %>
+            </select>
+
+            <!-- <input type="text", name="city" id="city"> -->
+
+          </div>
+        </div>
+        <!-- <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Type</label>
               <select class="form-control form-control-lg form-control-a" id="Type">
@@ -36,12 +61,12 @@
               </select>
             </div>
           </div> -->
-          
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Buscar apartamento</button>
-          </div>
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-b">Buscar apartamento</button>
         </div>
-      </form>
-    </div>
-  </div> 
-  <!--/ Form Search End /-->
+      </div>
+    </form>
+  </div>
+</div>
+<!--/ Form Search End /-->
