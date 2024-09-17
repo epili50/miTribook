@@ -27,7 +27,7 @@ const getEditAparmentForm = async (req, res) => {
 };
 
 const postNewApartment = async (req, res) => {
-  const { id, title, city, length, latitude, price, size, maxGuest, rooms, beds, bathrooms, mainPhoto, descriptionPhoto1, photo2, descriptionPhoto2, photo3, descriptionPhoto3, photo4, descriptionPhoto4, services, description, rules } = req.body;
+  const { id, title, city, length, latitude, price, size, maxGuest, rooms, beds, bathrooms, mainPhoto, descriptionPhoto1, photo2, descriptionPhoto2, photo3, descriptionPhoto3, photo4, descriptionPhoto4, services, description, rules, availableStatus } = req.body;
   console.log("🚀 ~ postNewApartment ~ req.body:", req.body)
   const photos=[{
     photo:mainPhoto, 
@@ -44,7 +44,13 @@ const postNewApartment = async (req, res) => {
 
   ]
 
- 
+
+
+ if(availableStatus == 'notAvailable'){
+  isAvailable = false
+ } else{
+  isAvailable = true
+ }
   
 
   if (id) {
@@ -65,7 +71,8 @@ const postNewApartment = async (req, res) => {
       photos,
       services,
       description,
-      rules
+      rules,
+      isAvailable
     });
     res.send("Apartamento actualizado");
     return;
@@ -87,7 +94,8 @@ const postNewApartment = async (req, res) => {
     photos,
     services,
     description,
-    rules
+    rules,
+    isAvailable
   });
 
   res.send("Apartamaneto creado");

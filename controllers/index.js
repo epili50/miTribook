@@ -6,7 +6,7 @@ const Reservation = require("../models/reservation.model.js");
 
 const getApartments = async (req, res) => {
   // Obtenemos todos los apartamentos de la base de datos
-  const apartments = await Apartment.find();
+  const apartments = await Apartment.find({ isAvailable: { $ne: false } });
 
   res.render("home", {
     apartments,

@@ -98,6 +98,11 @@ const apartmentSchema = new Schema({
         
     }, 
 
+    isAvailable:{
+        type: Boolean,
+        required: true
+    }
+
    })
 
 // Asegurarse de que el índice geoespacial se cree

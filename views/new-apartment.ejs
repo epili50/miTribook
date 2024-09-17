@@ -119,7 +119,7 @@
                         <div class="form-group">
                           <label for="maxGuest">N° de huéspedes</label>
                           <input type="number" name="maxGuest" id="maxGuest"
-                            class="form-control form-control-lg form-control-a" placeholder="2" min="1" required
+                            class="form-control form-control-lg form-control-a" placeholder="0" min="1" required
                             value='<%= apartment.maxGuest %>'>
                           <div class="validation"></div>
                         </div>
@@ -282,7 +282,7 @@
                       <div class="col-md-12 mb-3">
                         <label for="services">Reglas: marque los aspectos NO permitidos en la propiedad</label>
                       </div>
-                      <div class="col-md-12 mb-3"></div>
+                      <div class="col-md-12 mb-3">
                       <div class="form-group">
                         <input type="checkbox" id="smoke" name="rules" value="Fumar" <% if (apartment && apartment.rules
                           && apartment.rules.includes('Fumar')) { %>
@@ -310,6 +310,18 @@
                                 <div class="validation"></div>
                       </div>
                     </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="available">Indique si el departemento esta disponible para publica</label>
+                      </div>
+                      <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <select name="availableStatus" id="available">
+                            <option value="available">Disponible</option>
+                            <option value="notAvailable">No disponible</option>
+                            </select>
+
+                        </div>
+                      </div>
                     <div class="col-md-12">
                       <input type="submit" value=<%=apartment._id? 'Editar propiedad' : 'Agregar propiedad' %>
                       class="btn btn-a">
