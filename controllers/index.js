@@ -9,7 +9,7 @@ const homePage = async (req, res) => {
   const apartments = await Apartment.find({ isAvailable: { $ne: false } });
 
     const cities = await getAllCities();
-    console.log("🚀 ~ getApartments ~ cities:", cities)
+    
 
 
   
@@ -26,7 +26,7 @@ const getApartments = async (req, res) => {
   const apartments = await Apartment.find({ isAvailable: { $ne: false } });
 
     const cities = await getAllCities();
-    console.log("🚀 ~ getApartments ~ cities:", cities)
+    
 
 
   
@@ -108,7 +108,7 @@ const searchApartments = async (req, res) => {
 
 
 
-  res.render("home", {
+  res.render("all-apartments", {
     apartments,
     cities
   });
