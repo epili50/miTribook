@@ -4,7 +4,7 @@
 const Apartment = require("../models/apartment.model.js");
 const Reservation = require("../models/reservation.model.js");
 
-const getApartments = async (req, res) => {
+const homePage = async (req, res) => {
   // Obtenemos todos los apartamentos de la base de datos
   const apartments = await Apartment.find({ isAvailable: { $ne: false } });
 
@@ -15,6 +15,23 @@ const getApartments = async (req, res) => {
   
 
   res.render("home", {
+    apartments,
+    cities
+    
+  });
+};
+
+const getApartments = async (req, res) => {
+  // Obtenemos todos los apartamentos de la base de datos
+  const apartments = await Apartment.find({ isAvailable: { $ne: false } });
+
+    const cities = await getAllCities();
+    console.log("🚀 ~ getApartments ~ cities:", cities)
+
+
+  
+
+  res.render("all-apartments.ejs", {
     apartments,
     cities
     
@@ -134,6 +151,7 @@ const postNewReservation = async (req, res) => {
 };
 
 module.exports = {
+  homePage,
   getApartments,
   getApartmentById,
   searchApartments,

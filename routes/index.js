@@ -6,7 +6,12 @@ const router = express.Router();
 const indexControllers = require('../controllers/index');
 
 // Router funciona igual que el "app" para crear los endpoints. Nos permite definir un conjunto arbitrario de rutas
-router.get('/', indexControllers.getApartments);
+
+//Home
+router.get('/', indexControllers.homePage);
+
+// Todos los apartamentos
+router.get('/apartment', indexControllers.getApartments)
 
 //ruta al endpoint /search para buscar apartments
 router.get('/search', indexControllers.searchApartments);

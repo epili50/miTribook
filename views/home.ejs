@@ -125,7 +125,7 @@
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a"> noche por | <%= ap.price %>€</span>
+                      <span class="price-a">noche por | <%= ap.price %>€</span>
                     </div>
                     <a href="/apartment/<%= ap._id %>" class="link-a">Click aquí para ver 
                       <span class="ion-ios-arrow-forward"></span>
@@ -134,23 +134,25 @@
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
                       <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span><%= ap.size %>m
-                          <sup>2</sup>
+                        <h4 class="card-info-title">Huéspedes</h4>
+                          <span><%= ap.maxGuest %>
+                          </span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">Habitaciones</h4>
+                        <span><%= ap.rooms %>
                         </span>
                       </li>
-                      <!-- <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
+                      <li>
+                        <h4 class="card-info-title">Camas</h4>
+                        <span><%= ap.beds %>
+                        </span>
                       </li>
                       <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li> -->
+                        <h4 class="card-info-title">Baños</h4>
+                        <span><%= ap.bathrooms %>
+                        </span>
+                      </li>  
                     </ul>
                   </div>
                 </div>
