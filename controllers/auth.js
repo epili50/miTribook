@@ -2,18 +2,13 @@ const USERNAME = "admin";
 const PASSWORD = "admin";
 
 const getLoginForm = (req, res) => {
-    res.send(`
-        <form method="POST" action="/login">
-            <input type="text" name="username" placeholder="Usuario" required />
-            <input type="password" name="password" placeholder="Contraseña" required />
-            <button type="submit">Iniciar sesión</button>
-        </form>
-    `);
-}
+    res.redirect('/?login=true');
+    };
 
 const postLoginForm = (req, res) => {
     const { username, password } = req.body;
-
+    console.log( username, password);
+    
     // TODO.: Crear un modelo de Users. Crear un Schema que guarde los usuarios de tipo administrador en tu base de datos de MongoDB (username, password).
 
     // TODO+: Crear una pagina para registrar nuevos usuarios administradores

@@ -1,0 +1,32 @@
+<!-- Partial para el login -->
+<% if (!isAdmin) { %>
+<div id="navbarTogglerDemo02" class="box-collapse collapse">
+    <div class="title-box-d">
+      <h3 class="title-d">Iniciar Sesión</h3>
+    </div>
+    <span class="close-box-collapse right-boxed ion-ios-close"></span>
+    <div class="box-collapse-wrap form">
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" name="username" id="username" class="form-control form-control-lg form-control-a">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" name="password" id="password" class="form-control form-control-lg form-control-a" required>
+        </div>
+        <button type="submit" class="btn btn-b">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+  <% } else { %>
+    <div id="navbarTogglerDemo02" class="box-collapse collapse">
+    <span class="close-box-collapse right-boxed ion-ios-close"></span>
+        <div class="box-collapse-wrap form">
+            <form action="/logout" method="POST">
+                <button type="submit" class="btn btn-b">Cerrar Sesión</button>
+
+            </form>
+        </div>
+    </div>
+    <% } %>
