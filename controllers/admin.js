@@ -99,8 +99,33 @@ const postNewApartment = async (req, res) => {
   res.send("Apartamaneto creado");
 };
 
+const getAllCities = async () =>{
+  const apartments = await Apartment.find({ isAvailable: { $ne: false } });
+
+  return cities = [...new Set(apartments.map(apartment => apartment.city))];
+
+  
+}
+
+const getDisableApartment = async (req, res) =>{
+  const apartments = await Apartment.find({ isAvailable: { $ne: true } });
+
+  const cities = await getAllCities();
+  
+
+
+
+
+res.render("disables-apartments.ejs", {
+  apartments,
+  cities
+  
+});
+}
+
 module.exports = {
   getNewApartmentForm,
   postNewApartment,
   getEditAparmentForm,
+  getDisableApartment
 };
