@@ -4,7 +4,7 @@ const getNewApartmentForm = (req, res) => {
   // Obtener todos los apartmentos de la base de datos
   const apartments = Apartment.find();
 
-  res.render("new-apartment.ejs", {
+  res.render("edit-apartment.ejs", {
     apartment: {},
   });
 };
@@ -21,7 +21,7 @@ const getEditAparmentForm = async (req, res) => {
   console.log('ver esto: ', apartment.location.coordinates[1]);
 
   // 3. Pasar este apartmento a la vista para pre rellenar todos los campos
-  res.render("new-apartment", {
+  res.render("edit-apartment", {
     apartment,
   });
 };
