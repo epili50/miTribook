@@ -14,9 +14,10 @@
   <%- include('./partials/nav') %>
 
   <!--/ Carousel Star /-->
-  <!-- <div class="intro intro-carousel">
+  <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-1.jpg)">
+      <% for (const ap of apartments) { %>
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<%= ap.mainPhoto %>)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -24,13 +25,12 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345</p>
+                    <p class="intro-title-top">Disponible 
                     <h1 class="intro-title mb-4">
-                      <span class="color-b">204 </span> Mount
-                      <br> Olive Road Two</h1>
+                      <span class="color-b"> <%= ap.title %></span>
+                      <br> <%= ap.city %></h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                      <a href="/apartment/<%= ap._id %>"><span class="price-a">noche por | <%= ap.price %>€</span></a>
                     </p>
                   </div>
                 </div>
@@ -39,54 +39,9 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-2.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">204 </span> Rino
-                      <br> Venda Road Five</h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-3.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">204 </span> Alira
-                      <br> Roan Road One</h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% } %>
     </div>
-  </div> -->
+  </div>
   <!--/ Carousel end /-->
 
  
@@ -121,8 +76,8 @@
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="/apartment/<%= ap._id %>">ciudad
-                        <br /> <%= ap.title %></a>
+                      <a href="/apartment/<%= ap._id %>"> <%= ap.title %>
+                        <br /> <%= ap.city %></a>
                     </h2>
                   </div>
                   <div class="card-body-a">
@@ -166,239 +121,8 @@
   </section>
   <!--/ Property End /-->
 
-    
-  <!-- / Testimonials Star /-->
-  <!-- <section class="section-testimonials section-t8 nav-arrow-a">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a">Testimonials</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="testimonial-carousel" class="owl-carousel owl-arrow">
-        <div class="carousel-item-a">
-          <div class="testimonials-box">
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-img">
-                  <img src="img/testimonial-1.jpg" alt="" class="img-fluid">
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-ico">
-                  <span class="ion-ios-quote"></span>
-                </div>
-                <div class="testimonials-content">
-                  <p class="testimonial-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                    debitis hic ber quibusdam
-                    voluptatibus officia expedita corpori.
-                  </p>
-                </div>
-                <div class="testimonial-author-box">
-                  <img src="img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
-                  <h5 class="testimonial-author">Albert & Erika</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item-a">
-          <div class="testimonials-box">
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-img">
-                  <img src="img/testimonial-2.jpg" alt="" class="img-fluid">
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-ico">
-                  <span class="ion-ios-quote"></span>
-                </div>
-                <div class="testimonials-content">
-                  <p class="testimonial-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                    debitis hic ber quibusdam
-                    voluptatibus officia expedita corpori.
-                  </p>
-                </div>
-                <div class="testimonial-author-box">
-                  <img src="img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
-                  <h5 class="testimonial-author">Pablo & Emma</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!--/ Testimonials End / -->
 
-  <!--/ footer Star /-->
-  <!-- <section class="section-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-4">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
-            </div>
-            <div class="w-body-a">
-              <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
-              </p>
-            </div>
-            <div class="w-footer-a">
-              <ul class="list-unstyled">
-                <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com</li>
-                <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">The Company</h3>
-            </div>
-            <div class="w-body-a">
-              <div class="w-body-a">
-                <ul class="list-unstyled">
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">International sites</h3>
-            </div>
-            <div class="w-body-a">
-              <ul class="list-unstyled">
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">China</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="nav-footer">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">Home</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Property</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Blog</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="socials-a">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="copyright-footer">
-            <p class="copyright color-text-a">
-              &copy; Copyright
-              <span class="color-a">EstateAgency</span> All Rights Reserved.
-            </p>
-          </div>
-          <div class="credits">
-            
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-            -->
-            <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer> --> 
-  <!--/ Footer End /-->
+  <%- include ('./partials/footer') %>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>

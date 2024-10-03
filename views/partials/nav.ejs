@@ -66,10 +66,11 @@
           </li>
           <% } %>
           
-          
+          <% if (!isAdmin) { %>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="#">Contact</a>
           </li>
+          <% } %>
         </ul>
       </div>
       <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block mr-2" data-toggle="collapse"

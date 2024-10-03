@@ -554,7 +554,7 @@
 .fa-bar-chart:before {
   content: "\f080";
 }
-.fa-twitter-square:before {
+.fa-times-square:before {
   content: "\f081";
 }
 .fa-facebook-square:before {
@@ -624,7 +624,7 @@
 .fa-phone-square:before {
   content: "\f098";
 }
-.fa-twitter:before {
+.fa-times:before {
   content: "\f099";
 }
 .fa-facebook-f:before,
