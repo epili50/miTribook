@@ -54,8 +54,8 @@ const apartmentSchema = new Schema({
     photos: {
         type: [{
             photo: {
-                type: String, // URL de la foto
-                required: true,
+                type: String // URL de la foto
+               
             },
             descriptionPhoto: {
                 type: String,

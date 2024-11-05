@@ -28,7 +28,7 @@ const getEditAparmentForm = async (req, res) => {
 
 const postNewApartment = async (req, res) => {
   const { id, title, city, length, latitude, price, size, maxGuest, rooms, beds, bathrooms, mainPhoto, descriptionPhoto1, photo2, descriptionPhoto2, photo3, descriptionPhoto3, photo4, descriptionPhoto4, services, description, rules, availableStatus } = req.body;
-  console.log("🚀 ~ postNewApartment ~ req.body:", req.body)
+  // console.log("🚀 ~ postNewApartment ~ req.body:", req.body)
   const photos=[{
     photo:mainPhoto, 
     descriptionPhoto: descriptionPhoto1},
@@ -43,6 +43,7 @@ const postNewApartment = async (req, res) => {
     descriptionPhoto: descriptionPhoto4},
 
   ]
+  console.log("🚀 ~ postNewApartment ~ photos:", photos)
 
  const isAvailable = true;
 
